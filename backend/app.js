@@ -14,6 +14,7 @@ const multer = require('multer');
 
 app.use(cors({
     credentials: true,
+    origin: "*"
 }))
 
 app.use(bodyParser.json())
