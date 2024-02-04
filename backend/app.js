@@ -11,22 +11,10 @@ const app = express()
 require('dotenv').config()
 const multer = require('multer');
 
-// app.use(cors({
-//     credentials: true,
-//     origin: ['https://places-app-client.vercel.app'],
-// }))
-
-const allowedOrigins = ['https://places-app-client.vercel.app'];
 app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true,
-}));
+    credentials: true,
+    origin: ['https://places-app-client.vercel.app'],
+}))
 
 app.use(bodyParser.json())
 
