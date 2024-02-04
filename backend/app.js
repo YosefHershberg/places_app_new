@@ -11,22 +11,22 @@ const app = express()
 require('dotenv').config()
 const multer = require('multer');
 
-// app.use(cors({
-//     credentials: true,
-//     origin: 'https://places-app-client.vercel.app',
-// }))
+app.use(cors({
+    credentials: true,
+    origin: ['https://places-app-client.vercel.app', 'http://localhost:5173'],
+}))
 
 app.use(bodyParser.json())
 
 // app.use('/uploads/images', express.static(path.join('uploads', 'images')))
 
-app.use('/', (req, res) => {
-    res.send('server is running')
-})
-
 app.use('/api/places', placesRoutes)
 
 app.use('/api/users', usersRoutes)
+
+// app.use('/', (req, res) => {
+//     res.send('server is running')
+// })
 
 app.use((req, res, next) => {
     const error = new HttpError('This route could not be found', 404)
