@@ -20,6 +20,10 @@ app.use(bodyParser.json())
 
 // app.use('/uploads/images', express.static(path.join('uploads', 'images')))
 
+app.use('/', (req, res) => {
+    res.send('server is running')
+})
+
 app.use('/api/places', placesRoutes)
 
 app.use('/api/users', usersRoutes)
