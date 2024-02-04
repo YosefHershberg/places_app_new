@@ -9,6 +9,7 @@
     "routes": [
         {
             "src": "/(.*)",
+            "destination": "/",
             "dest": "./app.js",
             "methods": [
                 "GET",
@@ -22,12 +23,6 @@
                 "Access-Control-Allow-Origin": "https://places-app-client.vercel.app",
                 "Access-Control-Allow-Credentials": "true"
             }
-        }
-    ],
-    "rewrites": [
-        {
-            "source": "/(.*)",
-            "destination": "/"
         }
     ]
 }
