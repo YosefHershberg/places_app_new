@@ -8,6 +8,7 @@ const HttpError = require('./models/http-error')
 const path = require('path')
 const cors = require('cors')
 const app = express()
+require('dotenv').config()
 const multer = require('multer');
 
 
@@ -46,6 +47,7 @@ mongoose.connect(
     `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.vdxgsrs.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`
 ).then(() => {
     app.listen(process.env.PORT || 5050)
+    console.log('MongoDB is connected!')
 }
 ).catch(err => {
     console.log(err);
