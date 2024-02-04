@@ -12,8 +12,8 @@ require('dotenv').config()
 const multer = require('multer');
 
 app.use(cors({
-    credentials: true,
-    origin: ['https://places-app-client.vercel.app'],
+    credentials: 'https://places-app-client.vercel.app',
+    origin: true,
 }))
 
 app.use(bodyParser.json())

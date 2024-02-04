@@ -1,5 +1,5 @@
 import UserCard from "@/components/users/UserCard"
-import { Box, Button, Center, Heading } from "@chakra-ui/react"
+import { Box, Button, Heading } from "@chakra-ui/react"
 import styled from "styled-components"
 import { useQuery } from "react-query"
 import { getUsers } from "@/lib/api"
