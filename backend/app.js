@@ -13,7 +13,7 @@ const multer = require('multer');
 
 app.use(cors({
     credentials: true,
-    origin: ['https://places-app-client.vercel.app', 'http://localhost:5173'],
+    origin: ['https://places-app-new.vercel.app'],
 }))
 
 app.use(bodyParser.json())
