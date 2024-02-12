@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 import { AddIcon, HamburgerIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { FaPlaceOfWorship, FaUsers } from "react-icons/fa6";
 import { FaSignOutAlt } from "react-icons/fa";
-import breakpoints from '@/lib/breakingPoints';
+import breakpoints from '@/lib/breakingpoints';
 
 const Navbar = () => {
     const bg = useColorModeValue('gray.100', 'gray.800')
