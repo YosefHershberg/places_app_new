@@ -7,7 +7,7 @@ import DeletePlaceModal from '../modals/DeletePlaceModal'
 import { useCallback } from 'react'
 import useOptDeletePlace from '@/utils/hooks/useOptDeletePlace'
 import { Link } from 'react-router-dom'
-import breakpoints from '@/lib/breakingPoints'
+import breakpoints from '@/lib/breakingpoints'
 
 interface PlaceProps {
     place: PlaceType,
