@@ -1,9 +1,7 @@
 import { User } from '@/lib/Types'
 import axiosClient from '@/lib/axiosClient'
-import { createContext, useState, useCallback, useMemo, useLayoutEffect, useEffect } from 'react'
-import Cookies from 'js-cookie'
+import { createContext, useState, useCallback, useMemo, useLayoutEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { AxiosError, AxiosResponse } from 'axios'
 
 export interface AuthContextType {
     loggedUser: User | null,
@@ -24,18 +22,12 @@ const AuthContextProvider = ({ children }: { children: React.ReactNode }) => {
 
     const logUserIn = useCallback((user: User, token: string) => {
         setLoggedUser(user);
-        // Cookies.set('access_token', token);
         localStorage.setItem('places_user', JSON.stringify(user));
         localStorage.setItem('access_token', token);
     }, [])
 
-    // useEffect(() => {
-    //     console.log(Cookies.get('access_token'));
-    // }, []);
-
     const signOut = useCallback(() => {
         setLoggedUser(null);
-        // Cookies.remove('access_token');
         localStorage.removeItem('places_user');
         localStorage.removeItem('access_token');
         navigate('/', { replace: true });
@@ -53,22 +45,8 @@ const AuthContextProvider = ({ children }: { children: React.ReactNode }) => {
             (error: Error) => error,
         );
 
-        // const interceptorResponses = axiosClient.interceptors.response.use(
-        //     (res: AxiosResponse) => res,
-        //     (error: AxiosError) => {
-        //         // console.log(error);
-        //         //@ts-expect-error
-        //         if (error.response.status === 401 && error.response.data.message === 'Authentication failed') {
-        //             console.log('yay');
-        //             signOut();
-        //         };
-        //         return error;
-        //     },
-        // );
-
         return () => {
             axiosClient.interceptors.request.eject(interceptorRequests);
-            // axiosClient.interceptors.response.eject(interceptorResponses);
         }
     }, [])
 

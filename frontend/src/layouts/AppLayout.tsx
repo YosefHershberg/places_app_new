@@ -22,6 +22,6 @@ const AppLayoutStyled = styled(Box)`
     max-height: 100vh;
     overflow-y: auto;
     overflow-x: hidden;
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
 `

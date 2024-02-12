@@ -54,11 +54,7 @@ export default UserPlaces
 export const UserPlacesStyled = styled(Box)`
     width: 100%;
     display: flex;
+    flex-direction: row;
     justify-content: center;
     padding-top: 1rem;
-
-    .inner-container {
-        width: 40rem;
-    }
-
 `
