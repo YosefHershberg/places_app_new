@@ -37,7 +37,7 @@ const NewPlace = () => {
                             placeholder="Enter Title"
                         />
                         {isTitleValid &&
-                            <span className="error-text">Must contain 3 characters</span>
+                            <span className="error-text">Must contain 3 characters & no more then 40</span>
                         }
                     </InputContainer>
                     <InputContainer>
@@ -54,7 +54,7 @@ const NewPlace = () => {
                             placeholder="Describe you new place"
                         />
                         {isDescriptionValid &&
-                            <span className="error-text">Must contain 8 characters</span>
+                            <span className="error-text">Must contain 8 characters & no more then 70</span>
                         }
                     </InputContainer>
                     <InputContainer>
