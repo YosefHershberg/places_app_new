@@ -5,6 +5,7 @@ const placesRoutes = require('./routes/places-routes')
 const usersRoutes = require('./routes/users-routes')
 const mongoose = require('mongoose')
 const HttpError = require('./models/http-error')
+const cookieParser = require("cookie-parser");
 const path = require('path')
 const cors = require('cors')
 const app = express()
@@ -13,10 +14,12 @@ const multer = require('multer');
 
 app.use(cors({
     credentials: true,
-    origin: ['https://places-app-new.vercel.app'],
+    // origin: ['https://places-app-new.vercel.app'],
+    origin: true
 }))
 
 app.use(bodyParser.json())
+app.use(cookieParser());
 
 // app.use('/uploads/images', express.static(path.join('uploads', 'images')))
 

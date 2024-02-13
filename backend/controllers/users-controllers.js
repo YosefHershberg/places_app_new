@@ -84,7 +84,6 @@ const signup = async (req, res, next) => {
     res.cookie('access_token', token, { maxAge: expirationTime * 60 * 60000, httpOnly: true });
     res.status(201).json({
         user: newUser.toObject({ getters: true }),
-        token
     })
 }
 
@@ -132,7 +131,6 @@ const login = async (req, res, next) => {
     res.cookie('access_token', token, { maxAge: expirationTime * 60 * 60000, httpOnly: true });
     res.status(200).json({
         user: existingUser.toObject({ getters: true }),
-        token
     })
 }
 
