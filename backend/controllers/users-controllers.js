@@ -1,6 +1,7 @@
+const { v4: uuidv4 } = require('uuid')
 const bcrypt = require('bcryptjs')
 const HttpError = require('../models/http-error')
-const { validationResult } = require('express-validator');
+const { body, validationResult } = require('express-validator');
 const User = require('../models/user');
 const jwt = require('jsonwebtoken')
 
@@ -80,9 +81,10 @@ const signup = async (req, res, next) => {
         return next(error)
     }
 
-    res.cookie('access_token', token, { maxAge: expirationTime * 60 * 60000, httpOnly: false });
+    // res.cookie('access_token', token, { maxAge: expirationTime * 60 * 60000, httpOnly: true });
     res.status(201).json({
         user: newUser.toObject({ getters: true }),
+        token
     })
 }
 
@@ -127,9 +129,10 @@ const login = async (req, res, next) => {
         return next(error)
     }
 
-    res.cookie('access_token', token, { maxAge: expirationTime * 60 * 60000, httpOnly: false });
+    // res.cookie('access_token', token, { maxAge: expirationTime * 60 * 60000, httpOnly: true });
     res.status(200).json({
         user: existingUser.toObject({ getters: true }),
+        token
     })
 }
 
