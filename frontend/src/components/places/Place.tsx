@@ -1,5 +1,5 @@
 import { Place as PlaceType } from '@/lib/Types'
-import { Card, Heading, Image, Text, Divider, Button, useDisclosure } from '@chakra-ui/react'
+import { Card, Heading, Text, Divider, Button, useDisclosure } from '@chakra-ui/react'
 import styled from 'styled-components'
 import MapModal from '../modals/MapModal'
 import useAuth from '@/utils/hooks/useAuth'
@@ -108,7 +108,7 @@ export const PlaceStyled = styled(Card)`
     }
 
     .btn-container {
-        flex: 1;
+        /* flex: 1; */
         display: flex;
         justify-content: center;
         align-items: center;

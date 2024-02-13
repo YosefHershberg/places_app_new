@@ -1,5 +1,4 @@
-import React from 'react'
-import { Skeleton, SkeletonCircle, SkeletonText, CardBody } from '@chakra-ui/react'
+import { Skeleton, SkeletonCircle, CardBody } from '@chakra-ui/react'
 import { UsersStyled } from '@/components/users/Users'
 import { UserCradStyled } from '../users/UserCard'
 

@@ -17,7 +17,8 @@ const UserPlaces = () => {
         queryFn: () => getPlacesByUserId(userId),
     })
 
-    if (isLoading) return <LoadingUserPlaces />
+    if (isLoading)
+        return <LoadingUserPlaces />
 
     if (error) return (
         <ErrorPage

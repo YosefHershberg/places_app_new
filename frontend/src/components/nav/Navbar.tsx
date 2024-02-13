@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import { AddIcon, HamburgerIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { FaPlaceOfWorship, FaUsers } from "react-icons/fa6";
 import { FaSignOutAlt } from "react-icons/fa";
+import { IoIosLogIn } from "react-icons/io";
 import breakpoints from '@/lib/breakingpoints';
 
 const Navbar = () => {
@@ -94,8 +95,7 @@ const Navbar = () => {
                                     <MenuItem icon={<FaSignOutAlt />} onClick={onLogoutModlOpen}>Sign out</MenuItem>
                                 </> :
                                 <Link to='/auth/login'>
-                                    <Button variant='outline'>Authenticate</Button>
-                                </Link>
+                                    <MenuItem icon={<IoIosLogIn />}>Authenticate</MenuItem>                </Link>
                             }
                             <MenuItem onClick={() => toggleColorMode()} icon={colorMode === "dark" ? <SunIcon /> : <MoonIcon />}>
                                 {colorMode === "dark" ? 'Light mode' : 'Dark mode'}
