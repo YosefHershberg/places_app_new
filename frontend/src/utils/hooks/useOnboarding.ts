@@ -58,7 +58,7 @@ const useOnboarding = (isLogin: boolean) => {
 
     useEffect(() => {
         if (responseStatus && isResponseStatusSuccess(responseStatus)) {
-            logUserIn(data.user);
+            logUserIn(data.user, data.token);
             navigate('/', { replace: true });
         };
     }, [responseStatus]);

@@ -1,12 +1,11 @@
 import { User } from '@/lib/Types'
 import axiosClient from '@/lib/axiosClient'
-import { deleteCookie } from '@/utils/helperFunctions'
 import { createContext, useState, useCallback, useMemo, useLayoutEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 export interface AuthContextType {
     loggedUser: User | null,
-    logUserIn: (user: User) => void,
+    logUserIn: (user: User, token: string) => void,
     signOut: () => void
 };
 
@@ -22,15 +21,16 @@ const AuthContextProvider = ({ children }: { children: React.ReactNode }) => {
     const navigate = useNavigate();
 
 
-    const logUserIn = useCallback((user: User) => {
+    const logUserIn = useCallback((user: User, token: string) => {
         setLoggedUser(user);
         localStorage.setItem('places_user', JSON.stringify(user));
+        localStorage.setItem('access_token', JSON.stringify(token));
     }, [])
 
     const signOut = useCallback(() => {
         setLoggedUser(null);
         localStorage.removeItem('places_user');
-        deleteCookie('access_token')
+        localStorage.removeItem('access_token');
         navigate('/', { replace: true });
     }, [])
 
